@@ -1,0 +1,175 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<link href="jquery-ui-1.10.4.custom/css/smoothness/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+	<script src="jquery-ui-1.10.4.custom/js/jquery-1.10.2.js"></script>
+	<script src="jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.js"></script>
+
+	<script type="text/javascript" src="js/jquery.fittext.js"></script>
+	<script type="text/javascript" src="js/wordList.js"></script>
+	<script type="text/javascript" src="js/words.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/words.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/animation.css"></link>
+</head>
+
+<body>
+
+<!------------------------------   MAIN MENU   ---------------------------->
+
+	<div id="main-menu" class="disable-select">
+	        <div id="bg_drako" class="floating"><img src="images/0_drako.png"></div>
+	    	<div id="bg_home"><img src="images/0_bg_home.jpg"></div>
+		<div id="title"><img src="images/title.png"></div>
+        
+		<div id="button-start-playing" class="button bigEntrance sound-click"><img src="images/0_bt_jogar.png"></div>
+		<div id="button-credits" class="sound-click"><img src="images/0_credits.png"></div>
+		<div id="button-options" class="sound-click"><a href="http://www.facebook.com/aventuradaspalavras" target="_blank"><img src="images/0_bt_fb.png"></a></div>
+		<div class="pulse button-music"><img class="on" src="images/0_music.png"><img class="off" src="images/0_music_no.png" style="display: none"></div>
+	</div>
+
+
+<!------------------------------   CREDITS   ------------------------------>
+	
+	<div id="credits-screen" class="disable-select">
+    		<div id="credits">
+            
+            <p>A "Aventura das palavras" ajuda as crianças a treinar, de forma divertida, as competências implicadas na leitura, como a correspondência grafo-fonética (correspondência letra-som), fusão fonética e fusão silábica, trabalhando vários tipos de sílabas (das mais fáceis às mais difíceis) e os casos especiais da Língua Portuguesa.</p><br><h1>Créditos</h1>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="color:#40645b; 
+	font-size:14px;">
+  <tr>
+    <td width="50%" align="center" colspan="2">
+      <h2>Jogo desenvolvido por:</h2>
+      <img src="images/logo_2.png">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <h2>Programação</h2>
+      Tiago Epifânio
+     </td>
+    <td align="center">
+      <h2>Ilustrações<br></h2>
+      João Caleia Rodrigues</td>
+    <!-- <td align="center"><h2>Aconselhamento <br>
+Psicopedagógico</h2>
+Susana Faísca</td>-->
+    </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <br>
+      <h2>Música</h2>
+      <i>Mining by Moonlight</i> Kevin McLeod<br>(incompetech.com)</td>
+    </tr>
+</table>
+            
+            </div>
+    		<div id="bg_credits"><img src="images/0_bg_credits.jpg"></div>
+		<div id="button-credits-back-2" class="sound-click"></div>
+		<div class="pulse button-music"><img class="on" src="images/0_music.png"><img class="off" src="images/0_music_no.png" style="display: none">
+	    </div>
+	</div>
+
+
+<!----------------------------   LEVEL SELECT   ---------------------------->
+
+	
+	<div id="level-select-screen" class="disable-select">
+	        <div id="bg_drako_2" class="floating"><img src="images/0_drako.png"></div>
+	    	<div id="bg_level"><img src="images/0_bg_home.jpg"></div>
+		<div id="title"><img src="images/title.png"></div>
+		<div class="button bigEntrance sound-click button-level1"><img src="images/0_bt_n1.png"></div>
+		<div class="button bigEntrance sound-click button-level2"><img src="images/0_bt_n2.png"></div>
+		<div class="button bigEntrance sound-click button-level3"><img src="images/0_bt_n3.png"></div>
+        	<div class="bigEntrance sound-click more_dificult">
+			<img class="off" src="images/0_bt_n4.png">
+			<img class="on" src="images/0_bt_n4_check.png" style="display: none">
+		</div>
+        
+		<div class="bigEntrance sound-click button-credits-back"></div>
+		<div class="pulse button-music"><img class="on" src="images/0_music.png"><img class="off" src="images/0_music_no.png" style="display: none"></div>
+	</div>
+
+<!----------------------------   LEVEL COMPLETE   ---------------------------->
+
+	
+	<div id="level-complete-screen" class="disable-select">
+    	<h1>PARABÉNS</h1>
+        <p>Completaste todas as palavras!<br>
+		Experimenta o nível mais difícil.</p>
+	    	<div id="bg_winner"><img src="images/0_bg_winner.jpg"></div>
+		<div class="button bigEntrance sound-click button-level1"><img src="images/0_bt_n1.png"></div>
+		<div class="button bigEntrance sound-click button-level2"><img src="images/0_bt_n2.png"></div>
+		<div class="button bigEntrance sound-click button-level3"><img src="images/0_bt_n3.png"></div>
+        	<div class="bigEntrance sound-click more_dificult">
+			<img class="off" src="images/0_bt_n4.png">
+			<img class="on" src="images/0_bt_n4_check.png" style="display: none">
+		</div>
+        
+		<div class="bigEntrance sound-click button-credits-back"></div>
+		<div class="pulse button-music"><img class="on" src="images/0_music.png"><img class="off" src="images/0_music_no.png" style="display: none"></div>
+	</div>
+
+<!-------------------------------   GAME   ------------------------------->
+
+
+	<div id="canvas" class="disable-select">
+        
+	        <div id="tutorial">
+		        <div id="tut_menu"><img src="images/tut_menu.png"></div>
+		        <div id="tut_letter"><img src="images/tut_letras.png"></div>
+		        <div id="tut_check"><img src="images/tut_check.png"></div>
+		        <div id="tut_erase"><img src="images/tut_apagar.png"></div>
+		        <div id="tut_music"><img src="images/tut_music.png"></div>
+		        <div id="tut_text"><img src="images/tut_text.png"></div>
+	        </div>
+        
+		<div id="title_game"><img src="images/0_bg_game_top.png"></div>
+    		<div id="bg_game_bottom"></div>
+    		<div id="bg_game_top">
+        		<img src="images/0_bg_game.jpg">
+            		<div id="bg_game_top_shadow" class="pulse"><img src="images/o_bg_image.png"></div>
+        	</div>
+    
+		<div class="pulse button-music"><img class="on" src="images/0_music.png"><img class="off" src="images/0_music_no.png" style="display: none"></div>
+        
+		<div class="image-container floating">
+			<img id="image" style="display: none" />
+		</div>
+        
+		<div id="delete" class="sound-click"></div>
+		<div id="submit" class="sound-click"></div>
+		<div id="exit" class="sound-click"></div>
+        
+		<div id="wrong-answer-dialog" style="display: none" class="disable-select">
+			<img src="images/poop.png" width="94" height="93" alt="poop"><br>Ooohh...
+		</div>
+        
+		<div id="right-answer-dialog" style="display: none" class="disable-select">
+        		<img src="images/star.png" width="94" height="93" alt="poop"><br>Boa, acertaste!
+		</div>
+        
+		<div id="exit-dialog" style="display: none" class="disable-select">
+		        <img src="images/question.png" width="94" height="93" alt="poop"><br>Sair do jogo?
+		</div>
+        
+	</div> 
+
+<!------------------------------   SPLASH SCREEN   ---------------------------->
+	<div id="splash_box">
+		<div id="splash">
+	    		<img src="images/logo.gif">
+		</div>
+	</div>
+		
+<!-------------------------------   SOUNDS   ------------------------------->
+
+	<audio id="sound-click" class="soundfx" src="sounds/click.mp3" preload="auto"></audio>
+	<audio id="sound-right" class="soundfx" src="sounds/tada.mp3" preload="auto"></audio>
+	<audio id="sound-wrong" class="soundfx" src="sounds/wahwah.mp3" preload="auto"></audio>
+	<audio id="sound-win-level" class="soundfx" src="sounds/kids.mp3" preload="auto"></audio>
+	
+</body>
+
+</html>

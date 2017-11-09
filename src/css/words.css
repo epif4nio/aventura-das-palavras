@@ -1,0 +1,654 @@
+@import url(http://fonts.googleapis.com/css?family=Galindo);
+
+/******************************      BODY      ******************************/
+
+
+body, html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+	margin:0px;
+	padding:0px;
+	background:#9bcfc2;
+}
+
+.disable-select {
+	-webkit-user-select: none;  
+	-moz-user-select: none;    
+	-ms-user-select: none;      
+	user-select: none;
+}
+
+/******************************      BOXES      ******************************/
+
+#splash_box {
+	width:100%;
+	height:100%;
+	position: relative;
+}
+
+#splash {
+	width:30%;
+	height:20%;
+	position:absolute;
+	left:35%;
+	top:40%;
+}
+
+#splash img {
+	width:100%;
+	height: auto;
+	vertical-align:middle;
+}
+
+#canvas {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	display: none;
+}
+
+.word {
+	width:80%;
+	height: 100%;
+	position:relative;
+	margin:0 auto;
+}
+
+#main-menu {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	display: none;
+}
+
+.image-container {
+	position:absolute;
+	left:0%;
+	top:10%;
+	width:100%;
+	height:40%;
+	text-align:center;
+	z-index:18;
+}
+
+.image-container img {
+	height:100%;
+	width: auto;
+}
+
+#credits-screen {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	display: none;
+}
+
+#credits {
+	overflow-y: auto;
+}
+
+#level-select-screen {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	display: none;
+}
+
+#level-complete-screen {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	display: none;
+}
+
+#level-complete-screen h1 {
+	width: 45%;
+	height: 40%;
+	left:5%;
+	top:10%;
+	display:block;
+	z-index:2;
+	position: absolute;
+	text-align:left;
+	font-size:66px;
+	font-family: 'Galindo', cursive;
+	color:#fff190;
+	margin:0;
+	padding:0;
+	text-shadow: 0 5px 0 #ce880d;
+	-moz-transform: rotate(-5deg);
+	-webkit-transform: rotate(-5deg);
+	-o-transform: rotate(-5deg);
+	-ms-transform: rotate(-5deg);
+	transform: rotate(-5deg);
+}
+
+#level-complete-screen p {
+	width: 40%;
+	height: 40%;
+	right:7%;
+	top:11%;
+	display:block;
+	z-index:3;
+	position: absolute;
+	text-align:right;
+	font-size:23px;
+	font-family: 'Galindo', cursive;
+	color:#406c62;
+	margin:0;
+	padding:0;
+}
+
+#credits {
+	position:absolute;
+	width:60%;
+	height:60%;
+	left:20%;
+	top:5%;
+	z-index:90;
+	font-family: 'Galindo', cursive;
+	text-align:center;
+	font-size:14px;
+	color:#40645b;
+	/*overflow-y: auto;*/
+}
+
+#credits h1 {
+	font-size:24px;
+	color:#ec5e00;
+	margin:0;
+	padding:0;
+}
+
+#credits h2 {
+	font-size:14px;
+	color:#ec5e00;
+	margin:10px 0 10px 0;
+	padding:0;
+}
+
+
+/******************************      BACKGROUNDS      ******************************/
+
+
+#title {
+	width:90%;
+	height:100%;
+	z-index:5;
+	position:absolute;
+	left:5%;
+	top:5%;
+}
+
+#title img {
+	width:100%;
+	height: auto;
+}
+
+#title_game {
+	width:35%;
+	height:40%;
+	z-index:5;
+	position:absolute;
+	left:0;
+	top:0;
+}
+
+#title_game img {
+	width:100%;
+	height: auto;
+	position:absolute;
+	left:0;
+	top:0;
+}
+
+#bg_home {
+	position:absolute;
+	bottom:10%;
+	left:5%;
+	width:90%;
+	height:95%;
+	z-index:1;
+}
+
+#bg_level {
+	position:absolute;
+	bottom:10%;
+	left:5%;
+	width:90%;
+	height:95%;
+	z-index:1;
+}
+
+#bg_winner {
+	position:absolute;
+	bottom:10%;
+	left:5%;
+	width:90%;
+	height:95%;
+	z-index:1;
+}
+
+#bg_credits {
+	position:absolute;
+	bottom:10%;
+	left:5%;
+	width:90%;
+	height:95%;
+	z-index:1;
+}
+
+#bg_home img, #bg_credits img, #bg_winner img, #bg_level img {
+	position: absolute; 
+	bottom: 0;
+	width:100%;
+	height:auto;
+}
+
+#bg_drako {
+	position:absolute;
+	bottom:25%;
+	right:10%;
+	width:20%;
+	height:90%;
+	z-index:6;
+}
+
+#bg_drako_2 {
+	position:absolute;
+	bottom:25%;
+	right:10%;
+	width:20%;
+	height:90%;
+	z-index:6;
+}
+
+#bg_drako img, #bg_drako_2 img {
+	position: absolute; 
+	bottom: 0;
+	width:100%;
+	height:auto;
+}
+
+#bg_game_bottom {
+	width:100%;
+	height:33%;
+	background: url(../images/0_bg_wood.jpg);
+	position:absolute;
+	left:0;
+	bottom:0;
+	z-index:5;
+}
+
+#bg_game_top {
+	width:100%;
+	height:67%;
+	position:absolute;
+	left:0;
+	bottom:32%;
+	z-index:4;
+}
+
+#bg_game_top img, #bg_game_top_shadow img {
+	position: absolute; 
+	bottom: 0;
+	width:100%;
+	height:auto;
+}
+
+#bg_game_top_shadow {
+	width:100%;
+	height:40%;
+	position:absolute;
+	left:0;
+	bottom:0;
+	z-index:5;
+}
+
+
+
+/******************************      GAME BUTTONS      ******************************/
+
+
+
+#exit {
+	position: absolute;
+	width: 5.25%;
+	height:0%;
+	padding:2% 0 3.525% 0;
+	cursor:pointer;
+	background:url(../images/home.jpg) center center;
+	-webkit-box-shadow: 0 10px 0 0 #2d2624;
+	box-shadow: 0 10px 0 0 #2d2624;
+	left: 5%;
+	bottom:5%;
+	z-index:10;
+}
+
+#delete {
+	position: absolute;
+	width: 5.25%;
+	height:0%;
+	padding:2% 0 3.525% 0;
+	cursor:pointer;
+	background:url(../images/eraser.jpg) center center;
+	-webkit-box-shadow: 0 10px 0 0 #2d2624;
+	box-shadow: 0 10px 0 0 #2d2624;
+	right: 5%;
+	bottom:20%;
+	z-index:12;
+}
+
+#submit {
+	position: absolute;
+	width: 5.25%;
+	height:0%;
+	padding:2% 0 3.525% 0;
+	cursor:pointer;
+	background:url(../images/checkmark.jpg) center center;
+	-webkit-box-shadow: 0 10px 0 0 #2d2624;
+	box-shadow: 0 10px 0 0 #2d2624;
+	right: 5%;
+	bottom:5%;
+	z-index:11;
+}
+
+.letter {
+	position: absolute;
+	width: 7%;
+	height:0%;
+	padding:1% 0 6% 0;
+	margin:20px 1% 0 1%;
+	text-align:center;
+	cursor:pointer;
+	font-family: 'Galindo', cursive;
+	font-size:2em;
+	color:#f4ece9;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+	background: url(../images/0_bg_letter.jpg);
+	-webkit-box-shadow: 0 10px 0 0 #2d2624;
+	box-shadow: 0 10px 0 0 #2d2624;
+	z-index:30;
+}
+
+.letter:active, #submit:active, #delete:active, #exit:active {
+	box-shadow: 0 2px 0 0 #2d2624 !important;
+	-webkit-transition: none;
+	transition: none;
+	margin-bottom:-8px;
+}
+
+.letter-placeholder {
+	width: 7%;
+	height:0%;
+	padding:1% 0 6% 0;
+	margin:0 1% 0 1%;
+	background-color: rgba(77, 87, 77, .3);
+	-webkit-box-shadow: 0 10px 0 0 rgba(77, 87, 77, .5);
+	box-shadow: 0 10px 0 0 rgba(77, 87, 77, .5);
+	position: absolute;
+	bottom:20%;
+	z-index:29
+}
+
+.selectable-placeholder {
+	width: 7%;
+	height:0%;
+	padding:1% 0 6% 0;
+	margin:0 1%;
+	background-color: rgba(77, 87, 77, .3);
+	-webkit-box-shadow: 0 10px 0 0 rgba(77, 87, 77, .5);
+	box-shadow: 0 10px 0 0 rgba(77, 87, 77, .5);
+	position: absolute;
+	bottom:5%;
+	z-index:28
+}
+
+.selectable {
+	bottom:5%;
+}
+
+
+/******************************      MENUS BUTTONS      ******************************/
+
+
+
+#main-menu .button,
+#level-select-screen .button {
+	width: 24%;
+	height:2%;
+	padding:1% 0 5% 0;
+	cursor:pointer;
+	background: url(../images/0_bg_bt.jpg);
+	-webkit-box-shadow: 0 10px 0 0 #312926;
+	box-shadow: 0 10px 0 0 #312926;
+	position:absolute;
+	text-align:center;
+	left: 38%;
+}
+
+
+#level-complete-screen .button {
+	width: 20%;
+	height:2%;
+	padding:1% 0 5% 0;
+	cursor:pointer;
+	background: url(../images/0_bg_bt.jpg);
+	-webkit-box-shadow: 0 10px 0 0 #312926;
+	box-shadow: 0 10px 0 0 #312926;
+	position:absolute;
+	text-align:center;
+	right: 15%;
+}
+
+#level-complete-screen .more_dificult {
+	width: 20%;
+	height:4%;
+	padding:0;
+	cursor:pointer;
+	position:absolute;
+	text-align:center;
+	position:absolute;
+	bottom:5%;
+	right: 14%;
+	z-index:30;
+}
+
+.button:active {
+	margin-top:8px;
+	box-shadow: 0 2px 0 0 #2d2624 !important;
+	-webkit-transition: none;
+	transition: none;
+}
+
+#level-select-screen .more_dificult {
+	width: 20%;
+	height:4%;
+	padding:0;
+	cursor:pointer;
+	position:absolute;
+	text-align:center;
+	position:absolute;
+	bottom:5%;
+	left: 40%;
+	z-index:30;
+}
+
+#main-menu .button img,
+#level-select-screen .button img,
+#level-complete-screen .button img {
+	/*height: 90%;*/
+	width: 75%;
+}
+
+#button-start-playing {
+	top: 50%;
+	z-index:30;
+}
+
+#button-credits {
+	position: absolute;
+	bottom: 3%;
+	width: 5%;
+	height: 4%;
+	right: 45%;
+	cursor:pointer;
+	z-index:32;
+}
+
+#button-options {
+	position: absolute;
+	bottom: 3%;
+	width: 5%;
+	height: 5%;
+	left: 44%;
+	cursor:pointer;
+	z-index:32;
+}
+
+.button-music {
+	position: absolute;
+	top: 4%;
+	width: 4%;
+	height: 5%;
+	right: 5%;
+	cursor:pointer;
+	z-index:32;
+}
+
+.button-music img, #button-options img, #button-credits img {
+	position: absolute; 
+	bottom: 0;
+	width:100%;
+	height:auto;
+}
+
+.more_dificult img {
+	position: absolute;
+	left:0;
+	bottom: 0;
+	width:100%;
+	height:auto;
+}
+
+.button-level1 {
+	position:absolute;
+	top: 30%;
+	z-index:30;
+}
+
+.button-level2 {
+	position:absolute;
+	top: 47%;
+	z-index:31;
+}
+
+.button-level3 {
+	position:absolute;
+	top: 64%;
+	z-index:31;
+}
+
+.button-credits-back, #button-credits-back-2 {
+	position: absolute;
+	width: 5.25%;
+	height:0%;
+	padding:2% 0 3.525% 0;
+	cursor:pointer;
+	background:url(../images/home.jpg) center center;
+	-webkit-box-shadow: 0 10px 0 0 #2d2624;
+	box-shadow: 0 10px 0 0 #2d2624;
+	left: 5%;
+	bottom:5%;
+	z-index:10;
+}
+
+.button-credits-back img, #button-credits-back-2 img {
+	width:100%;
+	height:auto;
+}
+
+
+/******************************      TUTORIAL      ******************************/
+
+
+#tutorial {
+	width:100%;
+	height:100%;
+	position:relative;
+	background:url(../images/tut_bg.png);
+	z-index:99;
+}
+
+#tutorial #tut_menu {
+	z-index:80;
+	bottom:15%;
+	left: 5%;
+}
+
+#tutorial #tut_letter {
+	z-index:81;
+	bottom:20%;
+	left: 40%;
+	text-align:center;
+}
+
+#tutorial #tut_erase {
+	z-index:82;
+	bottom:30%;
+	right: 5%;
+	text-align:right;
+}
+
+#tutorial #tut_check {
+	z-index:83;
+	bottom:5%;
+	right: 12%;
+	text-align:right;
+}
+
+#tutorial #tut_music {
+	z-index:84;
+	top:11%;
+	right:5%;
+	text-align:right;
+}
+
+#tutorial #tut_text {
+	top:30%;
+	right:10%;
+	position:absolute;
+	width:80%;
+	height:20%;
+	z-index:85;
+	text-align:center;
+}
+
+
+
+#tutorial #tut_menu,
+#tutorial #tut_letter,
+#tutorial #tut_erase,
+#tutorial #tut_check,
+#tutorial #tut_music {
+	position:absolute;
+	height:20%;
+	width:20%;
+}
+
+
+
+#tutorial #tut_menu img,
+#tutorial #tut_letter img,
+#tutorial #tut_erase img,
+#tutorial #tut_check img,
+#tutorial #tut_music img,
+#tutorial #tut_text img {
+	height:100%;
+	width:auto;
+	vertical-align:bottom;
+}

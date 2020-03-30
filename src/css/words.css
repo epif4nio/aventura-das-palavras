@@ -15,9 +15,9 @@ body {
 }
 
 .disable-select {
-	-webkit-user-select: none;  
-	-moz-user-select: none;    
-	-ms-user-select: none;      
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 	user-select: none;
 }
 
@@ -242,7 +242,7 @@ body {
 }
 
 #bg_home img, #bg_credits img, #bg_winner img, #bg_level img {
-	position: absolute; 
+	position: absolute;
 	bottom: 0;
 	width:100%;
 	height:auto;
@@ -267,7 +267,7 @@ body {
 }
 
 #bg_drako img, #bg_drako_2 img {
-	position: absolute; 
+	position: absolute;
 	bottom: 0;
 	width:100%;
 	height:auto;
@@ -293,7 +293,7 @@ body {
 }
 
 #bg_game_top img, #bg_game_top_shadow img {
-	position: absolute; 
+	position: absolute;
 	bottom: 0;
 	width:100%;
 	height:auto;
@@ -521,7 +521,7 @@ body {
 }
 
 .button-music img, #button-options img, #button-credits img {
-	position: absolute; 
+	position: absolute;
 	bottom: 0;
 	width:100%;
 	height:auto;
@@ -651,4 +651,14 @@ body {
 	height:100%;
 	width:auto;
 	vertical-align:bottom;
+}
+
+/************************      DIALOG QUICK FIX      ************************/
+
+.ui-dialog-titlebar {
+  display: none;
+}
+
+.ui-dialog-content {
+  height: auto !important;
 }

@@ -6,7 +6,7 @@ var currentWord = {
 
 var currentGameLevel;
 var music;
-var isMusicPlaying = true;
+var isMusicPlaying = false;
 var useExtraLetters = false;
 var currentWordIndex = 0;
 

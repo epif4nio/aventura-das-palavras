@@ -1,5 +1,23 @@
+/*
+Copyright (C) 2014 Tiago Epifânio,João Caleia Rodrigues
+Song "Mining by Moonlight", by Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 3.0 License
+http://creativecommons.org/licenses/by/3.0/
+This file is part of Aventura das Palavras.
+Aventura das Palavras is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
 var currentWord = {
-	word: "", 
+	word: "",
 	availableLetters: "",
 	image: ""
 }
@@ -10,9 +28,9 @@ var isMusicPlaying = false;
 var useExtraLetters = false;
 var currentWordIndex = 0;
 
-var playerWord = { 
-	word: "", 
-	ids: [], 
+var playerWord = {
+	word: "",
+	ids: [],
 	length: function() {
 		return this.word.length;
 	},
@@ -52,7 +70,7 @@ $(window).load(function() {
 
 
 var playBackgroundMusic = function() {
-	music = new Audio('music/Mining by Moonlight.mp3'); 
+	music = new Audio('music/Mining by Moonlight.mp3');
 	music.addEventListener('ended', function() {
 	    this.currentTime = 0;
 	    this.play();
@@ -66,7 +84,7 @@ var getNextWord = function() {
 	var imageFile = nextWord.f;
 	var availableLetters = nextWord.w.toUpperCase();
 	var maximumLetters = useExtraLetters ? 9 : word.length;
-	
+
 	var letterPool = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÇ';
 	while(availableLetters.length < maximumLetters ) {
 		var randomLetter = letterPool[Math.floor(Math.random() * letterPool.length)];
@@ -74,7 +92,7 @@ var getNextWord = function() {
 			availableLetters += randomLetter;
 		}
 	}
-	
+
 	return {word:word, availableLetters:availableLetters, image:imageFile};
 }
 
@@ -82,15 +100,15 @@ var initGeneral = function() {
 	$('.button-music').bind('click', function() {
 		toggleMusic();
 	});
-	
+
 	$(document).on('click', '.sound-click', function(e) {
 		sound('click');
 	});
-	
+
 	$(document).on('click', '.ui-button-text', function(e) {
 		sound('click');
 	});
-	
+
 	$('.soundfx').prop('volume', '0.3')
 }
 
@@ -102,35 +120,35 @@ var initMainMenu = function() {
 	$('#button-start-playing').bind('click', function() {
 		goToLevelSelectScreen();
 	});
-	
+
 	$('#button-credits').bind('click', goToCreditsScreen);
 	$('#credits-screen').bind('click', closeCreditsScreen);
 }
 
-var initLevelSelectScreen = function() {	
+var initLevelSelectScreen = function() {
 	$('.button-level1').bind('click', function() {
 		currentGameLevel = 1;
 		goToGameScreen();
 	});
-	
+
 	$('.button-level2').bind('click', function() {
 		currentGameLevel = 2;
 		goToGameScreen();
 	});
-	
+
 	$('.button-level3').bind('click', function() {
 		currentGameLevel = 3;
 		goToGameScreen();
 	});
-	
+
 	$('.more_dificult').bind('click', function() {
 		toggleExtraLetters();
 	});
-	
+
 	$('#level-select-screen .button-credits-back').bind('click', closeLevelSelectScreen);
 }
 
-var initLevelCompleteScreen = function() {	
+var initLevelCompleteScreen = function() {
 	$('#level-complete-screen .button-credits-back').bind('click', closeLevelCompleteScreen);
 }
 
@@ -151,14 +169,14 @@ var toggleMusic = function() {
 		$('.button-music .off').hide();
 		music.play();
 	}
-	
+
 	isMusicPlaying = !isMusicPlaying;
 }
 
 var toggleExtraLetters = function() {
 	$('.more_dificult .on').toggle();
 	$('.more_dificult .off').toggle();
-	
+
 	useExtraLetters = !useExtraLetters;
 }
 
@@ -196,7 +214,7 @@ var goToLevelSelectScreen = function() {
 
 var goToGameScreen = function() {
 	currentWordIndex = 0;
-	
+
 	wordList['level' + currentGameLevel] = shuffleArray(wordList['level' + currentGameLevel]);
 
 	var currentScreen = null;
@@ -217,8 +235,8 @@ var goToGameScreen = function() {
 var initGame = function() {
 	playerWord.reset();
 	$('#submit').removeClass('pulse');
-	
-	if (currentWordIndex === wordList['level' + currentGameLevel].length) { 
+
+	if (currentWordIndex === wordList['level' + currentGameLevel].length) {
 		$('.word').remove();
 		$('#image').hide();
 		$('#canvas').fadeOut(500, function() {
@@ -228,27 +246,27 @@ var initGame = function() {
 		});
 		return;
 	}
-	
+
 	currentWord = getNextWord();
-	
+
 	$('.word').remove();
 	$('#submit').removeClass('pulse');
-	
+
 	showNewWordImage(currentWord.image, function() {
 		showLettersAndPlaceholders(currentWord.word, currentWord.availableLetters);
-		
+
 		$('#delete').bind('click', function(e) {
 			deleteLetter();
 		});
-		
+
 		$('#submit').bind('click', function(e) {
 			submitWord();
 		});
-		
+
 		$('#exit').bind('click', function(e) {
 			exitGame();
 		});
-		
+
 		$('#canvas').on('click', '.letter.selectable', function(e) {
 			selectLetter(e.target);
 		});
@@ -257,7 +275,7 @@ var initGame = function() {
 
 var setWinningMessage = function() {
 	var message = null;
-	
+
 	if (!useExtraLetters) {
 		if (currentGameLevel == 1) {
 			message = "Completaste todas as palavras do nível Fácil!<br>Tenta agora o nível Médio.";
@@ -280,7 +298,7 @@ var setWinningMessage = function() {
 			message = "Completaste todas as palavras do nível mais Difícil do jogo!<br>Joga outra vez.";
 		}
 	}
-	
+
 	$('#level-complete-screen p').html(message);
 }
 
@@ -313,11 +331,11 @@ var selectLetter = function(target) {
 	if (playerWord.length() === currentWord.word.length) {
 		return;
 	}
-	
+
 	sound('click');
 
 	var obj = $(target);
-	
+
 	playerWord.word += obj.attr('data-letter');
 	playerWord.ids.push(obj.attr('data-id'));
 	obj.removeClass('selectable');
@@ -326,7 +344,7 @@ var selectLetter = function(target) {
 	var leftPos = getLeftPositionOfLetter(currentWord.word.length, playerWord.length() - 1);   50 - currentWord.word.length * 10 / 2 + (playerWord.length() - 1) * 10;
 	obj.css('left', leftPos + '%');
 	obj.css('bottom', '20%');
-	
+
 	if (currentWord.word.length === playerWord.word.length) {
 		$('#submit').addClass('pulse');
 	} else {
@@ -338,17 +356,17 @@ var deleteLetter = function() {
 	if (playerWord.length === 0) {
 		return;
 	}
-	
+
 	var lastLetter = playerWord.pop();
 	var lastLetterObj = $('.letter[data-id="' + lastLetter.id + '"]');
-	
+
 	lastLetterObj
 		.css('bottom','5%')
 		.css('left', lastLetterObj.attr('data-original-x-position'));
-	
+
 	lastLetterObj.addClass('selectable');
 	lastLetterObj.removeClass('selected');
-	
+
 	$('#submit').removeClass('pulse');
 }
 
@@ -385,7 +403,7 @@ var wrongAnswer = function() {
     });
 }
 
-var rightAnswer = function() {	
+var rightAnswer = function() {
 	sound('right');
 	$("#right-answer-dialog").dialog({
 		show: 100,
@@ -414,14 +432,14 @@ var unhookEvents = function() {
 
 var showNewWordImage = function(filename, callback) {
 	var img = $('#image');
-	
+
 	img.fadeOut(500, function() {
 		img.attr('src', 'dictionary/images/' + filename);
 		img.fadeIn(500, function() {
 			callback();
 		});
 	});
-	
+
 }
 
 var getLeftPositionOfLetter = function(wordLength, currentLetterIndex) {
@@ -441,30 +459,30 @@ var showLettersAndPlaceholders = function(word, availableLetters) {
 	while(shuffledLettersArray.toString() === availableLettersArray.toString()) {
 		shuffledLettersArray = shuffleArray(availableLettersArray);
 	}
-	
+
 	var currentLettersHtml = '<div class="word">';
 
 	currentLettersHtml += '<div class="word-placeholder">';
-	
+
 	for(i=0; i<word.length; i++) {
 		currentLettersHtml += '<div class="letter-placeholder" style="left:' + getLeftPositionOfLetter(word.length, i) + '%"></div>';
 	}
-	
-	currentLettersHtml += '</div>';	
-	
+
+	currentLettersHtml += '</div>';
+
 	for (i=0; i<availableLetters.length; i++) {
 		var letter = shuffledLettersArray.splice(0, 1);
 		var xPos = getLeftPositionOfLetter(availableLetters.length, i) + "%";
-		
+
 		currentLettersHtml += '<div class="selectable-placeholder" style="left:' + xPos + '"></div>';
-		
+
 		currentLettersHtml += '<div class="letter selectable {letter}" style="left: {left}" data-id="{id}" data-letter="{letter}" data-original-x-position="{left}">{letter}</div>'
 			.replace(/{letter}/g, letter)
 			.replace(/{left}/g, xPos)
 			.replace(/{id}/g, i);
 	}
 	currentLettersHtml += "</div>";
-	
+
 	$('#canvas').append(currentLettersHtml);
 	$('.letter').fitText(0.15);
 }
